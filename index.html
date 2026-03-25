@@ -418,7 +418,7 @@
 
    <script>
     // 1. PASTE YOUR NEW EXEC URL HERE
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwrXEBv1y4KophvuW3Fuwz643H6ALOJORFRZSi4NGeGL0i9DGo74R489FiG7kTqtZtw/exec'; 
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbw9o-vR4hMWWl7fiaI9wIMgKxhqyAMyvbhll3wOzoWUOXB7Vo483m0f0g7hwfmFof_3/exec'; 
 
     const form = document.getElementById('booking-form');
     const successMsg = document.getElementById('success-message');
@@ -441,26 +441,30 @@
         };
 
         // --- Send to Google Sheets ---
-fetch(scriptURL, { 
-    method: 'POST',
-    mode: 'no-cors', // <--- This is the magic line that stops the "Stuck" button
-    cache: 'no-cache',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(formData) 
-})
-.then(() => {
-    // With 'no-cors', the site assumes it worked and shows your success message
-    form.classList.add('hidden');
-    successMsg.classList.remove('hidden');
-    btn.disabled = false;
-    btn.innerText = 'Submit Request';
-})
-.catch(error => {
-    console.error('Error:', error);
-    alert('Something went wrong. Please try again.');
-    btn.disabled = false;
-    btn.innerText = 'Submit Request';
-});
+        fetch(scriptURL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Success:', data);
+            form.classList.add('hidden');
+            successMsg.classList.remove('hidden');
+            btn.disabled = false;
+            btn.innerText = 'Submit Request';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error submitting booking. Please check your Google Apps Script deployment and try again.');
+            btn.disabled = false;
+            btn.innerText = 'Submit Request';
+        });
         })
         .catch(error => {
             alert('Error connecting to Google Sheets. Check your script deployment.');
