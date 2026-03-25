@@ -132,8 +132,10 @@
                     </div>
                 </div>
                 <div class="grid grid-cols-2 gap-4">
-                    <img src="Interior 2.jpeg" class="w-full h-full object-cover luxury-border">
-                    <img src="Paint correction.jpg" class="w-full h-full object-cover luxury-border">
+                    <img src="Interior 2.jpeg" class="w-full h-48 object-cover luxury-border">
+                    <img src="Boot.jpg" class="w-full h-48 object-cover luxury-border">
+                    <img src="RR1.jpg" class="w-full h-48 object-cover luxury-border">
+                    <img src="Paint correction.jpg" class="w-full h-48 object-cover luxury-border">
                 </div>
             </div>
         </div>
@@ -169,7 +171,7 @@
                 </div>
                 <div class="space-y-4">
                     <img src="Toyota.jpg" class="w-full h-80 object-cover luxury-border">
-                    <p class="text-center text-[10px] tracking-[0.2em] uppercase text-gray-500">Engine Aesthetics</p>
+                    <p class="text-center text-[10px] tracking-[0.2em] uppercase text-gray-500">Full Restoration</p>
                 </div>
             </div>
         </div>
@@ -310,8 +312,10 @@
 
         // Date restriction
         const dateInput = document.querySelector('input[type="date"]');
-        const today = new Date().toISOString().split('T')[0];
-        dateInput.setAttribute('min', today);
+        if(dateInput) {
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.setAttribute('min', today);
+        }
     </script>
 </body>
 </html>
