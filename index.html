@@ -440,22 +440,34 @@
             date: form.querySelector('input[type="date"]').value
         };
 
-        fetch(scriptURL, { 
-            method: 'POST', 
-            body: JSON.stringify(formData) 
-        })
-        .then(response => {
-            form.classList.add('hidden');
-            successMsg.classList.remove('hidden');
-            btn.disabled = false;
-            btn.innerText = 'Submit Request';
+        // --- Send to Google Sheets ---
+fetch(scriptURL, { 
+    method: 'POST',
+    mode: 'no-cors', // <--- This is the magic line that stops the "Stuck" button
+    cache: 'no-cache',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(formData) 
+})
+.then(() => {
+    // With 'no-cors', the site assumes it worked and shows your success message
+    form.classList.add('hidden');
+    successMsg.classList.remove('hidden');
+    btn.disabled = false;
+    btn.innerText = 'Submit Request';
+})
+.catch(error => {
+    console.error('Error:', error);
+    alert('Something went wrong. Please try again.');
+    btn.disabled = false;
+    btn.innerText = 'Submit Request';
+});
         })
         .catch(error => {
             alert('Error connecting to Google Sheets. Check your script deployment.');
             btn.disabled = false;
             btn.innerText = 'Submit Request';
         });
-    });
+    
 
     // 3. PAGE NAVIGATION & MODAL LOGIC
     function navigate(pageId) {
