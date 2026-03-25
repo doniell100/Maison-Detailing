@@ -123,25 +123,37 @@
             </div>
         </div>
 
-        <section class="py-24 bg-dark-900">
-            <div class="max-w-7xl mx-auto px-6">
+        <section class="py-24 bg-dark-900 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-5">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&auto=format&fit=crop" alt="Background Detail" class="w-full h-full object-cover">
+            </div>
+            <div class="max-w-7xl mx-auto px-6 relative z-10">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-serif text-white mb-4">The Maison Experience</h2>
                     <p class="text-zinc-400 max-w-2xl mx-auto">Three simple steps to absolute automotive perfection.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                    <div class="text-center">
-                        <div class="w-16 h-16 rounded-full bg-dark-800 border border-gold-500/30 flex items-center justify-center mx-auto mb-6 text-gold-500 text-2xl">1</div>
+                    <div class="text-center group">
+                        <div class="relative mb-6">
+                            <div class="w-16 h-16 rounded-full bg-dark-800 border border-gold-500/30 flex items-center justify-center mx-auto text-gold-500 text-2xl group-hover:border-gold-500 transition-colors duration-300">1</div>
+                            <div class="absolute -top-2 -right-2 w-6 h-6 bg-gold-500 rounded-full flex items-center justify-center text-xs text-white font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">✓</div>
+                        </div>
                         <h3 class="text-xl font-serif text-white mb-3">Book Online</h3>
                         <p class="text-zinc-400 text-sm leading-relaxed">Select your desired package, choose an available time slot, and provide your vehicle details through our secure portal.</p>
                     </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 rounded-full bg-dark-800 border border-gold-500/30 flex items-center justify-center mx-auto mb-6 text-gold-500 text-2xl">2</div>
+                    <div class="text-center group">
+                        <div class="relative mb-6">
+                            <div class="w-16 h-16 rounded-full bg-dark-800 border border-gold-500/30 flex items-center justify-center mx-auto text-gold-500 text-2xl group-hover:border-gold-500 transition-colors duration-300">2</div>
+                            <div class="absolute -top-2 -right-2 w-6 h-6 bg-gold-500 rounded-full flex items-center justify-center text-xs text-white font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">✓</div>
+                        </div>
                         <h3 class="text-xl font-serif text-white mb-3">White-Glove Arrival</h3>
                         <p class="text-zinc-400 text-sm leading-relaxed">Our master technician arrives at your location fully equipped with spot-free water, power, and premium products.</p>
                     </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 rounded-full bg-dark-800 border border-gold-500/30 flex items-center justify-center mx-auto mb-6 text-gold-500 text-2xl">3</div>
+                    <div class="text-center group">
+                        <div class="relative mb-6">
+                            <div class="w-16 h-16 rounded-full bg-dark-800 border border-gold-500/30 flex items-center justify-center mx-auto text-gold-500 text-2xl group-hover:border-gold-500 transition-colors duration-300">3</div>
+                            <div class="absolute -top-2 -right-2 w-6 h-6 bg-gold-500 rounded-full flex items-center justify-center text-xs text-white font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">✓</div>
+                        </div>
                         <h3 class="text-xl font-serif text-white mb-3">Enjoy the Shine</h3>
                         <p class="text-zinc-400 text-sm leading-relaxed">We conduct a final walk-around with you to ensure perfection, followed by a seamless digital invoice.</p>
                     </div>
@@ -160,7 +172,11 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                     <div class="bg-dark-800 border border-white/5 hover:border-gold-500/50 p-8 transition-colors duration-300 group">
-                        <i class="fa-solid fa-spray-can-sparkles text-3xl text-gold-500 mb-6 group-hover:scale-110 transition-transform"></i>
+                        <div class="relative mb-6 overflow-hidden rounded-sm">
+                            <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=400&auto=format&fit=crop" alt="Car Wash" class="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gold-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </div>
+                        <i class="fa-solid fa-spray-can-sparkles text-3xl text-gold-500 mb-4 group-hover:scale-110 transition-transform"></i>
                         <h3 class="text-2xl font-serif text-white mb-3">Exterior Perfection</h3>
                         <p class="text-zinc-400 text-sm mb-6 leading-relaxed">Meticulous foam hand wash, iron decontamination, clay bar treatment, and premium silica sealant for deep gloss.</p>
                         <div class="border-t border-white/5 pt-6 mt-auto">
@@ -169,7 +185,11 @@
                         </div>
                     </div>
                     <div class="bg-dark-800 border border-white/5 hover:border-gold-500/50 p-8 transition-colors duration-300 group">
-                        <i class="fa-solid fa-couch text-3xl text-gold-500 mb-6 group-hover:scale-110 transition-transform"></i>
+                        <div class="relative mb-6 overflow-hidden rounded-sm">
+                            <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400&auto=format&fit=crop" alt="Interior Detailing" class="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gold-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </div>
+                        <i class="fa-solid fa-couch text-3xl text-gold-500 mb-4 group-hover:scale-110 transition-transform"></i>
                         <h3 class="text-2xl font-serif text-white mb-3">Interior Restoration</h3>
                         <p class="text-zinc-400 text-sm mb-6 leading-relaxed">Deep steam cleaning, leather pH-balanced conditioning, carpet extraction, and UV protection for all hard surfaces.</p>
                         <div class="border-t border-white/5 pt-6 mt-auto">
@@ -178,7 +198,11 @@
                         </div>
                     </div>
                     <div class="bg-dark-800 border border-white/5 hover:border-gold-500/50 p-8 transition-colors duration-300 group">
-                        <i class="fa-solid fa-shield-halved text-3xl text-gold-500 mb-6 group-hover:scale-110 transition-transform"></i>
+                        <div class="relative mb-6 overflow-hidden rounded-sm">
+                            <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&auto=format&fit=crop" alt="Paint Correction" class="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gold-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </div>
+                        <i class="fa-solid fa-shield-halved text-3xl text-gold-500 mb-4 group-hover:scale-110 transition-transform"></i>
                         <h3 class="text-2xl font-serif text-white mb-3">Paint Correction</h3>
                         <p class="text-zinc-400 text-sm mb-6 leading-relaxed">Multi-stage machine polishing to remove swirls, scratches, and oxidation. Restores a flawless, mirror-like finish.</p>
                         <div class="border-t border-white/5 pt-6 mt-auto">
@@ -237,6 +261,24 @@
                         <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Mercedes Detail">
                         <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                             <span class="text-white font-serif text-lg tracking-wide border-b border-gold-500 pb-1">Mercedes S-Class</span>
+                        </div>
+                    </div>
+                    <div class="relative group overflow-hidden aspect-square">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Audi Detail">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-serif text-lg tracking-wide border-b border-gold-500 pb-1">Audi Q7 Ceramic</span>
+                        </div>
+                    </div>
+                    <div class="relative group overflow-hidden aspect-square">
+                        <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Porsche Detail">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-serif text-lg tracking-wide border-b border-gold-500 pb-1">Porsche 911</span>
+                        </div>
+                    </div>
+                    <div class="relative group overflow-hidden aspect-square">
+                        <img src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Tesla Detail">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-serif text-lg tracking-wide border-b border-gold-500 pb-1">Tesla Model S</span>
                         </div>
                     </div>
                 </div>
