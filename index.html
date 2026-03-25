@@ -418,7 +418,7 @@
 
    <script>
     // 1. PASTE YOUR NEW EXEC URL HERE
-    const scriptURL = 'https://script.google.com/macros/s/AKfycby5hRedH0btX_AepBOqHXIKBDAhL8Ma6SJDCaL7OSQU8vi-cXY3R_OvWWTMvuFo9Wun/exec'; 
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwrXEBv1y4KophvuW3Fuwz643H6ALOJORFRZSi4NGeGL0i9DGo74R489FiG7kTqtZtw/exec'; 
 
     const form = document.getElementById('booking-form');
     const successMsg = document.getElementById('success-message');
@@ -432,12 +432,12 @@
         // 2. THIS GRABS DATA FROM YOUR FORM INPUTS IN ORDER
         // Make sure your form has 4 text inputs, 1 select, and 1 date input
         const formData = {
-            name: form.querySelectorAll('input[type="text"]')[0].value,
-            phone: form.querySelectorAll('input[type="text"]')[1].value,
-            suburb: form.querySelectorAll('input[type="text"]')[2].value,
-            vehicle: form.querySelectorAll('input[type="text"]')[3].value,
-            service: form.querySelector('select').value,
-            date: form.querySelector('input[type="date"]').value
+            name: form.querySelector('#name').value,
+            phone: form.querySelector('#phone').value,
+            suburb: form.querySelector('#suburb').value,
+            vehicle: form.querySelector('#vehicle').value,
+            service: form.querySelector('#service').value,
+            date: form.querySelector('#date').value
         };
 
         // --- Send to Google Sheets ---
@@ -447,7 +447,8 @@
         fetch(scriptURL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData)
+            body: JSON.stringify(formData),
+            signal: controller.signal
         })
         .then(response => {
             clearTimeout(timeoutId);
@@ -464,19 +465,18 @@
             btn.innerText = 'Submit Request';
         })
         .catch(error => {
+            clearTimeout(timeoutId);
             console.error('Error:', error);
-            alert('Error submitting booking. Please check your Google Apps Script deployment and try again.');
+            if (error.name === 'AbortError') {
+                alert('Request timed out. Please check your internet connection and try again.');
+            } else {
+                alert('Error submitting booking: ' + error.message + '. Please check your Google Apps Script deployment.');
+            }
             btn.disabled = false;
             btn.innerText = 'Submit Request';
         });
-        })
-        .catch(error => {
-            alert('Error connecting to Google Sheets. Check your script deployment.');
-            btn.disabled = false;
-            btn.innerText = 'Submit Request';
-        });
+    });
     
-
     // 3. PAGE NAVIGATION & MODAL LOGIC
     function navigate(pageId) {
         document.querySelectorAll('.page-view').forEach(p => p.classList.add('hidden'));
@@ -496,9 +496,11 @@
         document.getElementById('booking-modal').classList.add('opacity-0', 'pointer-events-none');
     }
 
-    function toggleNavMenu() {
+     function toggleNavMenu() {
         document.getElementById('nav-overlay').classList.toggle('active');
     }
+
 </script>
 </body>
 </html>
+    
