@@ -485,10 +485,41 @@
             btn.innerText = 'TRANSMITTING REQUEST...';
             btn.disabled = true;
 
-            setTimeout(() => {
-                contactForm.classList.add('hidden');
-                contactSuccess.classList.remove('hidden');
-            }, 1200);
+            // Collect form data
+            const formData = {
+                name: contactForm.querySelector('input[placeholder="Enter your name"]').value,
+                phone: contactForm.querySelector('input[placeholder="e.g. +263..."]').value,
+                suburb: contactForm.querySelector('input[placeholder="Harare Suburb"]').value,
+                vehicle: contactForm.querySelector('input[placeholder="e.g. BMW X5, Toyota Hilux"]').value,
+                service: contactForm.querySelector('select').value,
+                notes: contactForm.querySelector('textarea').value || 'No additional notes'
+            };
+
+            // Replace with your Google Apps Script deployment URL
+            const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx-ln0LCDe7uy8WT5k6vCT4a3Ox2QbzgLcyoaMeNdAlRCvi-QyHoUtgibIJth4lqnJq2w/exec';
+
+            // Send data to Google Apps Script
+            fetch(APPS_SCRIPT_URL, {
+                method: 'POST',
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.status === 'success') {
+                    contactForm.classList.add('hidden');
+                    contactSuccess.classList.remove('hidden');
+                } else {
+                    btn.innerText = 'REQUEST MY FREE QUOTE';
+                    btn.disabled = false;
+                    alert('Error submitting form. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                btn.innerText = 'REQUEST MY FREE QUOTE';
+                btn.disabled = false;
+                alert('Error submitting form. Please try again.');
+            });
         });
     </script>
 </body>
