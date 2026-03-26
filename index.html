@@ -485,14 +485,18 @@
             btn.innerText = 'SUBMITTING ...';
             btn.disabled = true;
 
-            // Collect form data
+            // Collect form data using querySelectorAll (more robust)
+            const textInputs = contactForm.querySelectorAll('input[type="text"]');
+            const textarea = contactForm.querySelector('textarea');
+            const select = contactForm.querySelector('select');
+
             const formData = {
-                name: contactForm.querySelector('input[placeholder="Enter your name"]').value,
-                phone: contactForm.querySelector('input[placeholder="e.g. +263..."]').value,
-                suburb: contactForm.querySelector('input[placeholder="Borrowdale, Chisipite, ..."]').value,
-                vehicle: contactForm.querySelector('input[placeholder="e.g. BMW X5, Toyota Hilux"]').value,
-                service: contactForm.querySelector('select').value,
-                notes: contactForm.querySelector('textarea').value || 'No additional notes'
+                name: textInputs[0].value,          // Full Name
+                phone: textInputs[1].value,         // Phone Number
+                suburb: textInputs[2].value,        // Suburb/Location
+                vehicle: textInputs[3].value,       // Vehicle Make & Model
+                service: select.value,              // Service Selected
+                notes: textarea.value || 'No additional notes'
             };
 
             console.log('Form data being sent:', formData);
