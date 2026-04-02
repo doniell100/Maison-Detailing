@@ -34,6 +34,31 @@
         .luxury-border { border: 1px solid rgba(201, 168, 76, 0.2); }
         .hero-gradient { background: linear-gradient(to bottom, rgba(17,17,17,0.4), #111111); }
         .active-nav { color: #C9A84C !important; }
+        
+        /* Enhanced Social Button Styling */
+        .social-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(201, 168, 76, 0.4);
+            background: #151515;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+        .social-btn:hover {
+            background: #C9A84C;
+            color: #1B2A4A;
+            border-color: #C9A84C;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(201, 168, 76, 0.3);
+        }
+        .social-btn i {
+            font-size: 24px; /* Increased icon size */
+        }
     </style>
 </head>
 <body class="antialiased bg-nearblack text-gray-200 font-sans">
@@ -497,7 +522,7 @@
                         </div>
                         <div>
                             <label class="block text-[10px] uppercase tracking-widest text-gold font-bold mb-2">Your Suburb or Location</label>
-                            <input type="text" required placeholder="Borrowdale, Chisipite, ..." class="w-full bg-[#111] border border-gold/20 p-4 text-sm focus:border-gold outline-none text-white rounded-sm font-light">
+                            <input type="text" required placeholder="Borrowdale, Highlands, ..." class="w-full bg-[#111] border border-gold/20 p-4 text-sm focus:border-gold outline-none text-white rounded-sm font-light">
                         </div>
                     </div>
 
@@ -553,11 +578,20 @@
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
             <img src="2.1.png" alt="Maison Detailing Footer Logo" class="h-18 md:h-24 w-auto object-contain">
             <p class="text-[10px] uppercase tracking-widest text-gray-500 font-light">&copy; 2026 MAISON DETAILING. ALL RIGHTS RESERVED.</p>
-            <div class="flex space-x-4">
-                <a href="https://www.facebook.com/share/18ejrhChhU/?mibextid=wwXIfr" target="_blank" class="w-12 h-12 rounded-full border border-gold/30 bg-[#151515] flex items-center justify-center text-white hover:bg-gold hover:text-navy hover:border-gold transition-all shadow-lg"><i class="fa-brands fa-facebook-f text-xl"></i></a>
-                <a href="https://www.instagram.com/maisondetailingzw?igsh=MWh2ODAyaG85ejE4MQ%3D%3D&utm_source=qr" target="_blank" class="w-12 h-12 rounded-full border border-gold/30 bg-[#151515] flex items-center justify-center text-white hover:bg-gold hover:text-navy hover:border-gold transition-all shadow-lg"><i class="fa-brands fa-instagram text-xl"></i></a>
-                <a href="https://www.tiktok.com/@maisondetailingzw?_r=1&_t=ZS-95CsA2Lrk61" target="_blank" class="w-12 h-12 rounded-full border border-gold/30 bg-[#151515] flex items-center justify-center text-white hover:bg-gold hover:text-navy hover:border-gold transition-all shadow-lg"><i class="fa-brands fa-tiktok text-xl"></i></a>
-                <a href="https://wa.me/263789074659" target="_blank" class="w-12 h-12 rounded-full border border-gold/30 bg-[#151515] flex items-center justify-center text-white hover:bg-gold hover:text-navy hover:border-gold transition-all shadow-lg"><i class="fa-brands fa-whatsapp text-xl"></i></a>
+            
+            <div class="flex space-x-6">
+                <a href="https://www.facebook.com/share/18ejrhChhU/?mibextid=wwXIfr" target="_blank" class="social-btn" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/maisondetailingzw?igsh=MWh2ODAyaG85ejE4MQ%3D%3D&utm_source=qr" target="_blank" class="social-btn" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@maisondetailingzw?_r=1&_t=ZS-95CsA2Lrk61" target="_blank" class="social-btn" aria-label="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+                <a href="https://wa.me/263789074659" target="_blank" class="social-btn" aria-label="WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
             </div>
         </div>
     </footer>
